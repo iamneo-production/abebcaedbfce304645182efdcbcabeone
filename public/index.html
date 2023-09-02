@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tic_tac_toe</title>
-
-  <!-- link the style.css and app.js files -->
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC TAC TOE</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <!-- Enter your code here -->
+    <h1>TIC TAC TOE</h1>
+    <div class="row">
+        <input type="button" class="btn" id="btn1" onclick="playerTurn(1)" readonly>
+        <input type="button" class="btn" id="btn2" onclick="playerTurn(2)" readonly>
+        <input type="button" class="btn" id="btn3" onclick="playerTurn(3)" readonly>
+    </div>
+    <div class="row">
+        <input type="button" class="btn" id="btn4" onclick="playerTurn(4)" readonly>
+        <input type="button" class="btn" id="btn5" onclick="playerTurn(5)" readonly>
+        <input type="button" class="btn" id="btn6" onclick="playerTurn(6)" readonly>
+    </div>
+    <div>
+        <input type="button" class="btn" id="btn7" onclick="playerTurn(7)" readonly>
+        <input type="button" class="btn" id="btn8" onclick="playerTurn(8)" readonly>
+        <input type="button" class="btn" id="btn9" onclick="playerTurn(9)" readonly>
+    </div>
+    <div id="result-container">
+        <p id="result">Player X's Turn</p>
+    </div>
+    <div id="reset-container">
+        <button id="reset-btn" onclick="resetGame()">Reset</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
