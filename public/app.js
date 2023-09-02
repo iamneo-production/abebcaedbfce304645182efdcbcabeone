@@ -28,10 +28,26 @@ function checkResult(){
     for(let i=0;i<winningCombinations.length;i++)
     {
         const [a,b,c]=winningCombinations[i];
-        if(gameState[a] && gameState[a]===gam)
+        if(gameState[a] && gameState[a]===gameState[b] && gameState[a]=== gameState[c])
+        {
+            alert('player ${currentPlayer} Wins!');
+            gameActive=false;
+            return;
+        }
     }
 }
 
+function resetGame()
+{
+    currentPlayer="X";
+    gameActive=true;
+    gameState=['', '', '', '', '', '', '', '', ''];
+    for(let i=1;i<=9;i++)
+    {
+        document.getElementById('btn${i}').value="";
+        document.getElementById('btn${i}').disabled=false;
+    }
+}
 // // Function to handle player moves
 // const ticTacToe = (element, index) => {
 //     // Your game logic here
