@@ -43,7 +43,11 @@ function checkResult() {
         result.textContent = "It's a Draw!";
         gameActive = false;
     }
+    if (!gameActive) {
+        result.textContent = "Game Over!";
+    }
 }
+
 
 // Function to reset the game
 function resetGame() {
