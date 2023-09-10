@@ -30,7 +30,7 @@ const winningCombinations = [
     [2, 4, 6],
 ];
 
-// Function to check the game result
+/// Function to check the game result
 function checkResult() {
     for (const combination of winningCombinations) {
         const [a, b, c] = combination;
@@ -63,7 +63,6 @@ function resetGame() {
     result.textContent = `Player ${currentPlayer}'s Turn`;
     winner.style.display = 'none'; // Hide the winner element when resetting
 }
-
 btns.forEach((btn, i) => {
     btn.addEventListener('click', () => ticTacToe(btn, i));
 });
