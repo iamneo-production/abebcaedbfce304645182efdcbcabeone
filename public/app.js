@@ -3,6 +3,7 @@ let gameState = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let gameActive = true;
 let result = document.querySelector('#result');
+let winner = document.querySelector('#winner'); // Select the winner element
 let btns = document.querySelectorAll('.btn');
 
 // Function to handle player moves
@@ -34,20 +35,21 @@ function checkResult() {
     for (const combination of winningCombinations) {
         const [a, b, c] = combination;
         if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
-            result.textContent = `Player ${gameState[a]} Wins!`;
+            result.textContent = ""; // Clear the result message
+            winner.textContent = `Player ${gameState[a]} Wins!`; // Display the winner
+            winner.style.display = 'block'; // Display the winner element
             gameActive = false;
             return;
         }
     }
-    if (!gameState.includes('') && gameActive) {
+    
+    if (!gameState.includes('')) {
         result.textContent = "It's a Draw!";
         gameActive = false;
-    }
-    if (!gameActive) {
-        result.textContent = "Game Over!";
+    } else if (gameActive) {
+        result.textContent = `Player ${currentPlayer}'s Turn`;
     }
 }
-
 
 // Function to reset the game
 function resetGame() {
@@ -59,6 +61,7 @@ function resetGame() {
         btns[i].disabled = false;
     }
     result.textContent = `Player ${currentPlayer}'s Turn`;
+    winner.style.display = 'none'; // Hide the winner element when resetting
 }
 
 btns.forEach((btn, i) => {
