@@ -14,7 +14,7 @@ const ticTacToe = (element, index) => {
         element.disabled = true;
         checkResult();
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        result.textContent = `Player ${currentPlayer}'s Turn`;
+        result.textContent = `Player ${currentPlayer} Turn`;
     }
 };
 
@@ -36,7 +36,7 @@ function checkResult() {
         const [a, b, c] = combination;
         if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
             result.textContent = ""; // Clear the result message
-            winner.innerHTML = `<strong>Player ${gameState[a]} Won! 🎉</strong>`; // Display the winner with emoji and bold text
+            winner.innerHTML = `<strong>Player ${gameState[a]} Won 🎉</strong>`; // Display the winner with emoji and bold text
             winner.style.display = 'block'; // Display the winner element
             gameActive = false;
             return;
@@ -47,7 +47,7 @@ function checkResult() {
         result.textContent = "It's a Draw!";
         gameActive = false;
     } else if (gameActive) {
-        result.textContent = `Player ${currentPlayer}'s Turn`;
+        result.textContent = `Player ${currentPlayer} Turn`;
     }
 }
 
@@ -60,7 +60,7 @@ function resetGame() {
         btns[i].value = '';
         btns[i].disabled = false;
     }
-    result.textContent = `Player ${currentPlayer}'s Turn`;
+    result.textContent = `Player ${currentPlayer} Turn`;
     winner.style.display = 'none'; // Hide the winner element when resetting
 }
 btns.forEach((btn, i) => {
