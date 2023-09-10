@@ -2,7 +2,7 @@
 let gameState = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let gameActive = true;
-let result = document.querySelector('#result'); // Updated to select the result by ID
+let result = document.querySelector('#result');
 let btns = document.querySelectorAll('.btn');
 
 // Function to handle player moves
@@ -34,7 +34,7 @@ function checkResult() {
     for (const combination of winningCombinations) {
         const [a, b, c] = combination;
         if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
-            result.textContent = `Player ${gameState[a]} Wins!`; // Updated this line
+            result.textContent = `Player ${gameState[a]} Wins!`;
             gameActive = false;
             return;
         }
@@ -61,4 +61,4 @@ btns.forEach((btn, i) => {
     btn.addEventListener('click', () => ticTacToe(btn, i));
 });
 
-document.querySelector('#reset-btn').addEventListener('click', resetGame); // Updated to select the reset button by ID
+document.querySelector('#reset-btn').addEventListener('click', resetGame);

@@ -7,11 +7,7 @@ body {
     background-position: center center;
     font-family: "Radio Canada", sans-serif;
     background-color: #f2f2f2;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    margin: 0; /* Remove default body margin */
 }
 
 h1 {
@@ -20,14 +16,16 @@ h1 {
     text-shadow: 1px 1px 2px #000000;
     font-size: 50px;
 }
+/* Your existing CSS styles here */
 
 .board {
     text-align: center;
+    margin: 0 auto; /* Center horizontally */
     display: grid;
-    grid-template-rows: repeat(3, 1fr); /* Rows instead of columns */
-    gap: 10px;
-    max-width: 300px;
-    margin-top: 100px;
+    grid-template-rows: repeat(3, 1fr); /* Change to rows */
+    gap: 10px; /* Adjust the gap between cells as needed */
+    max-width: 300px; /* Set a maximum width for the grid */
+    margin-top: 100px; /* Adjust the top margin to center vertically */
 }
 
 .row {
@@ -51,6 +49,8 @@ h1 {
     cursor: pointer;
 }
 
+/* Your remaining styles here */
+
 .btn:hover {
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -67,7 +67,7 @@ h1 {
     display: flex;
     align-items: center;
     max-width: 200px;
-    margin: 20px auto;
+    margin: 20px auto; /* Center the result container horizontally */
     padding: 10px;
 }
 
@@ -81,7 +81,7 @@ h1 {
 
 #reset-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Center the reset button horizontally */
     margin-top: 20px;
 }
 
@@ -96,4 +96,6 @@ h1 {
 }
 
 #reset-btn:hover {
-   
+    background-color: #ffffff;
+    color: #000000;
+}
