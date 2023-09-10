@@ -1,23 +1,20 @@
-// Initial game state
 let gameState = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let gameActive = true;
-let result = document.querySelector('.result');
+let result = document.querySelector('#result');
 let btns = document.querySelectorAll('.btn');
 
-// Function to handle player moves
-const ticTacToe = (element, index) => {
+function playerTurn(index) {
     if (gameState[index] === '' && gameActive) {
         gameState[index] = currentPlayer;
-        element.value = currentPlayer;
-        element.disabled = true;
+        btns[index].value = currentPlayer;
+        btns[index].disabled = true;
         checkResult();
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
         result.textContent = `Player ${currentPlayer}'s Turn`;
     }
-};
+}
 
-// Winning combinations
 const winningCombinations = [
     [0, 1, 2],
     [3, 4, 5],
@@ -29,7 +26,6 @@ const winningCombinations = [
     [2, 4, 6],
 ];
 
-// Function to check the game result
 function checkResult() {
     for (const combination of winningCombinations) {
         const [a, b, c] = combination;
@@ -45,20 +41,19 @@ function checkResult() {
     }
 }
 
-// Function to reset the game
 function resetGame() {
     currentPlayer = 'X';
     gameActive = true;
     gameState = ['', '', '', '', '', '', '', '', ''];
-    for (let i = 0; i < btns.length; i++) {
-        btns[i].value = '';
-        btns[i].disabled = false;
-    }
+    btns.forEach((btn) => {
+        btn.value = '';
+        btn.disabled = false;
+    });
     result.textContent = `Player ${currentPlayer}'s Turn`;
 }
 
 btns.forEach((btn, i) => {
-    btn.addEventListener('click', () => ticTacToe(btn, i));
+    btn.addEventListener('click', () => playerTurn(i));
 });
 
-document.querySelector('#reset').addEventListener('click', resetGame);
+document.querySelector('#reset-btn').addEventListener('click', resetGame);
