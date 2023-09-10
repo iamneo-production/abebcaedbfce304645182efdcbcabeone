@@ -36,7 +36,7 @@ function checkResult() {
         const [a, b, c] = combination;
         if (gameState[a] && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
             result.textContent = ""; // Clear the result message
-            winner.textContent = `Player ${gameState[a]} Wins!`; // Display the winner
+            winner.innerHTML = `<strong>Player ${gameState[a]} Won! 🎉</strong>`; // Display the winner with emoji and bold text
             winner.style.display = 'block'; // Display the winner element
             gameActive = false;
             return;
